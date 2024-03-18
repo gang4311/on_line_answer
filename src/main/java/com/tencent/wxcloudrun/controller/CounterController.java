@@ -90,4 +90,31 @@ public class CounterController {
     }
   }
 
+
+  @PostMapping("/adminLogin")
+  @ApiOperation("管理员登陆")
+  @ApiImplicitParam(name = "user,",value = "用户名秘密",dataType = "AdminUserRequest")
+  public Result<Object> UserLogin(@RequestBody AdminUserRequest user)
+  {
+    String username=user.getUserName();
+    String password=user.getPassword();
+    //shiro验证
+    Subject subject= SecurityUtils.getSubject();
+    //根据用户名密码生成一个令牌
+    UsernamePasswordToken token=new UsernamePasswordToken(username,password);
+    try {
+      subject.login(token);    //执行登录操作
+    } catch (UnknownAccountException e) {
+      log.info("登录用户不存在");
+      return new Result<>(416,"用户不存在",username);
+    } catch (IncorrectCredentialsException e) {
+      log.info("登录密码错误");
+      return new Result<>(412,"密码错误，请重新登录",password);
+    }catch (AuthenticationException e) {
+      log.warn("用户登录异常:" + e.getMessage());
+      return new Result<>(416,"账户异常",username);
+    }
+    return new Result<>(200,"登录成功",username);
+  }
+
 }
