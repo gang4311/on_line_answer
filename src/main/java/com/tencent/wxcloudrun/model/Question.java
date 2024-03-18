@@ -1,95 +1,45 @@
 package com.tencent.wxcloudrun.model;
 
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
+import java.util.Date;
+@TableName(value = "question")
+@Data
 public class Question {
+    @TableId(value="id",type = IdType.AUTO)
     private Long id;
 
+    @TableField("create_time")
     private Date createTime;
 
+    @TableField("update_time")
     private Date updateTime;
 
+    @TableField("create_by")
     private String createBy;
 
+    @TableField("update_by")
     private String updateBy;
 
+    @TableField("is_del")
     private Byte isDel;
-
+    @TableField("number")
     private Integer number;
 
+    @TableField("type")
     private Byte type;
 
+    @TableField("answer")
     private String answer;
 
-    public Long getId() {
-        return id;
-    }
+    @TableField("content")
+    private String content;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @TableField("analysis")
+    private String analysis;
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy == null ? null : createBy.trim();
-    }
-
-    public String getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy == null ? null : updateBy.trim();
-    }
-
-    public Byte getIsDel() {
-        return isDel;
-    }
-
-    public void setIsDel(Byte isDel) {
-        this.isDel = isDel;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
-
-    public Byte getType() {
-        return type;
-    }
-
-    public void setType(Byte type) {
-        this.type = type;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer == null ? null : answer.trim();
-    }
-}
+   }

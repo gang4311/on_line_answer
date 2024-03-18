@@ -1,17 +1,9 @@
 package com.tencent.wxcloudrun.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.tencent.wxcloudrun.model.UserPaperAuth;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface UserPaperAuthMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(UserPaperAuth record);
-
-    int insertSelective(UserPaperAuth record);
-
-    UserPaperAuth selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(UserPaperAuth record);
-
-    int updateByPrimaryKey(UserPaperAuth record);
+@Mapper
+public interface UserPaperAuthMapper extends BaseMapper<UserPaperAuth> {
 }

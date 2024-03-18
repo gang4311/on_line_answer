@@ -1,17 +1,9 @@
 package com.tencent.wxcloudrun.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.tencent.wxcloudrun.model.PaperQuestion;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface PaperQuestionMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(PaperQuestion record);
-
-    int insertSelective(PaperQuestion record);
-
-    PaperQuestion selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(PaperQuestion record);
-
-    int updateByPrimaryKey(PaperQuestion record);
+@Mapper
+public interface PaperQuestionMapper extends BaseMapper<PaperQuestion> {
 }

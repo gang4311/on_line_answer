@@ -1,20 +1,10 @@
 package com.tencent.wxcloudrun.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.tencent.wxcloudrun.model.Question;
-import com.tencent.wxcloudrun.model.QuestionWithBLOBs;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface QuestionMapper {
-    int deleteByPrimaryKey(Long id);
+@Mapper
+public interface QuestionMapper  extends BaseMapper<Question> {
 
-    int insert(QuestionWithBLOBs record);
-
-    int insertSelective(QuestionWithBLOBs record);
-
-    QuestionWithBLOBs selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(QuestionWithBLOBs record);
-
-    int updateByPrimaryKeyWithBLOBs(QuestionWithBLOBs record);
-
-    int updateByPrimaryKey(Question record);
 }

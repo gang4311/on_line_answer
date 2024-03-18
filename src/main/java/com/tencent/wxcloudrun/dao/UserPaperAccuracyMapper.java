@@ -1,17 +1,10 @@
 package com.tencent.wxcloudrun.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.tencent.wxcloudrun.model.UserPaperAccuracy;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface UserPaperAccuracyMapper {
-    int deleteByPrimaryKey(Long id);
+@Mapper
+public interface UserPaperAccuracyMapper  extends BaseMapper<UserPaperAccuracy> {
 
-    int insert(UserPaperAccuracy record);
-
-    int insertSelective(UserPaperAccuracy record);
-
-    UserPaperAccuracy selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(UserPaperAccuracy record);
-
-    int updateByPrimaryKey(UserPaperAccuracy record);
 }

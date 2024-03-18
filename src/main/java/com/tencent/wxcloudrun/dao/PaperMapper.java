@@ -1,17 +1,9 @@
 package com.tencent.wxcloudrun.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.tencent.wxcloudrun.model.Paper;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface PaperMapper {
-    int deleteByPrimaryKey(Long id);
-
-    int insert(Paper record);
-
-    int insertSelective(Paper record);
-
-    Paper selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Paper record);
-
-    int updateByPrimaryKey(Paper record);
+@Mapper
+public interface PaperMapper extends BaseMapper<Paper> {
 }
