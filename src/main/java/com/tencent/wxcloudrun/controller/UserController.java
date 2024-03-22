@@ -23,7 +23,6 @@ public class UserController {
 
     @PostMapping("/adminLogin")
     @ApiOperation("管理员登陆")
-    @ApiImplicitParam(name = "user,",value = "用户名秘密",dataType = "AdminUserRequest")
     public Result<Object> UserLogin(@RequestBody AdminUserRequest user)
     {
         String username=user.getUserName();

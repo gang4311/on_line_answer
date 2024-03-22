@@ -9,9 +9,10 @@
     <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
     <result column="is_del" property="isDel" jdbcType="TINYINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, create_time, update_time, create_by, update_by, is_del, name
+    id, create_time, update_time, create_by, update_by, is_del, name ,img
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
@@ -26,10 +27,10 @@
   <insert id="insert" parameterType="com.tencent.wxcloudrun.model.Paper" >
     insert into paper (id, create_time, update_time, 
       create_by, update_by, is_del, 
-      name)
+      name,img)
     values (#{id,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{createBy,jdbcType=VARCHAR}, #{updateBy,jdbcType=VARCHAR}, #{isDel,jdbcType=TINYINT}, 
-      #{name,jdbcType=VARCHAR})
+      #{name,jdbcType=VARCHAR},#{img,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.tencent.wxcloudrun.model.Paper" >
     insert into paper
@@ -55,6 +56,9 @@
       <if test="name != null" >
         name,
       </if>
+      <if test="img != null" >
+        img,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -77,6 +81,9 @@
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -101,6 +108,9 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -111,7 +121,8 @@
       create_by = #{createBy,jdbcType=VARCHAR},
       update_by = #{updateBy,jdbcType=VARCHAR},
       is_del = #{isDel,jdbcType=TINYINT},
-      name = #{name,jdbcType=VARCHAR}
+      name = #{name,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

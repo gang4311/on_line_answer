@@ -33,5 +33,8 @@ public class Paper {
     @TableField("name")
     private String name;
 
+    @TableField("img")
+    private String img;
+
 
 }
