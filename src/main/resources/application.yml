@@ -12,6 +12,7 @@ spring:
     view:
       suffix: .html
       prefix: /
+    static-path-pattern: /**
 
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
